@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vikram Gupta — Senior Backend Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,300;9..144,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #fafaf8;
+      --bg-card: #ffffff;
+      --text-primary: #1a1a18;
+      --text-secondary: #5F5E5A;
+      --text-muted: #888780;
+      --border: #D3D1C7;
+      --border-blue: #B5D4F4;
+      --blue-bg: #E6F1FB;
+      --blue-text: #185FA5;
+      --blue-dark: #0C447C;
+      --green-bg: #EAF3DE;
+      --green-text: #3B6D11;
+      --green-mid: #639922;
+      --green-light: #C0DD97;
+      --green-2: #97C459;
+      --green-3: #3B6D11;
+      --gray-light: #F1EFE8;
+    }
+
+    body {
+      font-family: 'DM Mono', monospace;
+      background: var(--bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      padding: 3rem 1rem;
+    }
+
+    .port {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* Hero */
+    .hero {
+      border-bottom: 0.5px solid var(--border);
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .avatar-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 16px;
+      margin-bottom: 1.25rem;
+    }
+
+    .avatar {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: var(--blue-bg);
+      border: 0.5px solid var(--border-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fraunces', serif;
+      font-size: 24px;
+      font-weight: 300;
+      color: var(--blue-dark);
+      flex-shrink: 0;
+    }
+
+    .hero-name {
+      font-family: 'Fraunces', serif;
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--text-primary);
+      line-height: 1.15;
+    }
+
+    .hero-role {
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-top: 5px;
+      letter-spacing: 0.04em;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 11px;
+      background: var(--green-bg);
+      color: var(--green-text);
+      border-radius: 100px;
+      padding: 5px 12px;
+      border: 0.5px solid var(--green-light);
+      margin-top: 0.85rem;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green-mid);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .bio {
+      font-size: 12.5px;
+      line-height: 1.85;
+      color: #444441;
+      margin-top: 1.1rem;
+    }
+
+    .social-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-family: 'DM Mono', monospace;
+      color: var(--text-secondary);
+      border: 0.5px solid var(--border);
+      border-radius: 6px;
+      padding: 5px 11px;
+      text-decoration: none;
+      background: var(--bg-card);
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .social-btn:hover { border-color: #888780; color: var(--text-primary); }
+
+    /* Sections */
+    .section { margin-bottom: 2.25rem; }
+
+    .section-title {
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      border-bottom: 0.5px solid var(--border);
+      padding-bottom: 0.4rem;
+    }
+
+    /* Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+
+    .stat-num {
+      font-family: 'Fraunces', serif;
+      font-size: 24px;
+      font-weight: 300;
+      color: var(--text-primary);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 5px;
+      letter-spacing: 0.06em;
+    }
+
+    /* Experience */
+    .exp-list { display: flex; flex-direction: column; gap: 8px; }
+
+    .exp-card {
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-radius: 10px;
+      padding: 15px 17px;
+    }
+
+    .exp-card.current { border-color: var(--border-blue); }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 3px;
+    }
+
+    .exp-company { font-size: 13px; font-weight: 500; color: var(--text-primary); }
+    .exp-tenure { font-size: 10px; color: var(--text-muted); white-space: nowrap; margin-left: 8px; flex-shrink: 0; }
+    .exp-title { font-size: 11px; color: var(--blue-text); margin-bottom: 9px; }
+
+    .exp-bullets { list-style: none; padding: 0; }
+
+    .exp-bullets li {
+      font-size: 11px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      padding-left: 13px;
+      position: relative;
+      margin-bottom: 3px;
+    }
+
+    .exp-bullets li::before { content: '—'; position: absolute; left: 0; color: #B4B2A9; }
+
+    /* Skills */
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    .skill-tag {
+      font-size: 11px;
+      font-family: 'DM Mono', monospace;
+      color: #444441;
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-radius: 4px;
+      padding: 4px 10px;
+    }
+
+    .skill-tag.hot {
+      background: var(--blue-bg);
+      color: var(--blue-text);
+      border-color: var(--border-blue);
+    }
+
+    /* Highlights */
+    .highlight-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .hl-card {
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-radius: 8px;
+      padding: 13px 15px;
+    }
+
+    .hl-icon { font-size: 20px; color: var(--blue-text); margin-bottom: 7px; }
+    .hl-title { font-size: 12px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; }
+    .hl-desc { font-size: 10px; color: var(--text-secondary); line-height: 1.65; }
+
+    /* Education */
+    .edu-card {
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-radius: 8px;
+      padding: 13px 17px;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .edu-icon { font-size: 24px; color: var(--blue-text); flex-shrink: 0; }
+    .edu-title { font-size: 13px; font-weight: 500; color: var(--text-primary); }
+    .edu-sub { font-size: 11px; color: var(--text-secondary); margin-top: 3px; }
+
+    /* Contrib heatmap */
+    .contrib-row { display: flex; gap: 2px; flex-wrap: wrap; }
+
+    .contrib-cell { width: 11px; height: 11px; border-radius: 2px; background: var(--gray-light); }
+    .contrib-cell.l1 { background: var(--green-light); }
+    .contrib-cell.l2 { background: var(--green-2); }
+    .contrib-cell.l3 { background: var(--green-mid); }
+    .contrib-cell.l4 { background: var(--green-3); }
+
+    .contrib-meta { font-size: 10px; color: var(--text-muted); margin-top: 6px; }
+
+    /* Footer */
+    .footer {
+      margin-top: 3rem;
+      padding-top: 1.25rem;
+      border-top: 0.5px solid var(--border);
+      font-size: 10px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    @media (max-width: 500px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .highlight-row { grid-template-columns: 1fr; }
+      .hero-name { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="port">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="avatar-row">
+        <div class="avatar">VG</div>
+        <div>
+          <h1 class="hero-name">Vikram Gupta</h1>
+          <p class="hero-role">Senior Software Engineer · Backend & Distributed Systems · Gurugram, India</p>
+        </div>
+      </div>
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        Immediate joiner · Open to opportunities
+      </div>
+      <p class="bio">
+        12+ years building high-scale, real-time backend systems for consumer and enterprise platforms.<br>
+        Deep expertise in Java, Spring Boot, Kafka, and event-driven microservices.<br>
+        Currently powering seat-map systems serving millions of users at Ticketmaster (Live Nation).
+      </p>
+      <div class="social-row">
+        <a class="social-btn" href="mailto:vikramnitp@gmail.com">
+          <i class="ti ti-mail" aria-hidden="true"></i> vikramnitp@gmail.com
+        </a>
+        <a class="social-btn" href="https://linkedin.com/in/vikram-gupta-12a80315" target="_blank" rel="noopener">
+          <i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn
+        </a>
+        <a class="social-btn" href="tel:+919899377125">
+          <i class="ti ti-phone" aria-hidden="true"></i> +91-98993 77125
+        </a>
+        <a class="social-btn" href="https://github.com/vikramnitp" target="_blank" rel="noopener">
+          <i class="ti ti-brand-github" aria-hidden="true"></i> GitHub
+        </a>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num">12+</div>
+        <div class="stat-label">Years experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Companies</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">M+</div>
+        <div class="stat-label">Users served</div>
+      </div>
+    </div>
+
+    <!-- Experience -->
+    <section class="section">
+      <div class="section-title">Experience</div>
+      <div class="exp-list">
+
+        <div class="exp-card current">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">Ticketmaster · Live Nation</div>
+              <div class="exp-title">Senior Software Engineer</div>
+            </div>
+            <span class="exp-tenure">May 2022 – Present</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Real-time event seat maps for concerts &amp; sports — sub-100ms p99 latency, millions of users</li>
+            <li>Spring Boot microservices + Kafka for seat availability, updates &amp; aggregations</li>
+            <li>Python AWS Lambda for vectorized map image processing on demand</li>
+            <li>React.js Map Analyst tool for venue map configuration &amp; structural updates</li>
+            <li>AI-assisted delivery using Claude AI for code review, debugging &amp; documentation</li>
+          </ul>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">Ticketmaster · Live Nation</div>
+              <div class="exp-title">Software Engineer</div>
+            </div>
+            <span class="exp-tenure">Feb 2019 – Feb 2022</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Host Order Injector — aggregating event orders &amp; seat availability via Kafka Streams</li>
+            <li>Seat Stream services for real-time sold/open seat updates across events</li>
+            <li>Resilient high-volume microservices with scalability &amp; performance tuning</li>
+          </ul>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">GlobalLogic</div>
+              <div class="exp-title">Senior Software Engineer</div>
+            </div>
+            <span class="exp-tenure">Aug 2018 – Jan 2019</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Cloud-based backend applications on Google Cloud Platform with Spring Boot &amp; Core Java</li>
+          </ul>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">TaskBucks</div>
+              <div class="exp-title">Senior Software Engineer</div>
+            </div>
+            <span class="exp-tenure">Mar 2016 – Jul 2018</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>BulkEmailing — B2B marketing platform with microservices, real-time campaign analytics &amp; dashboards</li>
+            <li>DataBack &amp; Wifive — B2B/B2C mobile data rewards and Wi-Fi sharing platforms</li>
+            <li>Stack: Spring Boot, Kafka, MongoDB, MySQL, HDFS, HBase, Spark</li>
+          </ul>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">PeopleStrong</div>
+              <div class="exp-title">Software Developer</div>
+            </div>
+            <span class="exp-tenure">Nov 2013 – Feb 2016</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Multi-tenant HRMS — HRIS, Payroll, Attendance &amp; Exit workflows for enterprise clients</li>
+            <li>India Skill Survey 2015 &amp; Best Company to Work For 2014 (Business Today)</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section">
+      <div class="section-title">Skills &amp; tools</div>
+      <div class="skills-grid">
+        <span class="skill-tag hot">Java 8–17</span>
+        <span class="skill-tag hot">Apache Kafka</span>
+        <span class="skill-tag hot">Spring Boot</span>
+        <span class="skill-tag hot">Microservices</span>
+        <span class="skill-tag hot">Event-driven arch</span>
+        <span class="skill-tag">TypeScript</span>
+        <span class="skill-tag">NestJS</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">React.js</span>
+        <span class="skill-tag">MySQL</span>
+        <span class="skill-tag">MongoDB</span>
+        <span class="skill-tag">Redis</span>
+        <span class="skill-tag">HBase</span>
+        <span class="skill-tag">AWS Lambda</span>
+        <span class="skill-tag">AWS S3</span>
+        <span class="skill-tag">Google Cloud</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">Apache Spark</span>
+        <span class="skill-tag">Kafka Streams</span>
+        <span class="skill-tag">REST APIs</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">Linux</span>
+        <span class="skill-tag">Claude AI</span>
+      </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="section">
+      <div class="section-title">Career highlights</div>
+      <div class="highlight-row">
+        <div class="hl-card">
+          <div class="hl-icon"><i class="ti ti-ticket" aria-hidden="true"></i></div>
+          <div class="hl-title">Live ticketing at scale</div>
+          <div class="hl-desc">Seat-map systems serving millions of users with sub-100ms latency at Ticketmaster</div>
+        </div>
+        <div class="hl-card">
+          <div class="hl-icon"><i class="ti ti-topology-star-3" aria-hidden="true"></i></div>
+          <div class="hl-title">Kafka-first engineer</div>
+          <div class="hl-desc">Deep Kafka &amp; Kafka Streams expertise across high-throughput production pipelines</div>
+        </div>
+        <div class="hl-card">
+          <div class="hl-icon"><i class="ti ti-layers-intersect" aria-hidden="true"></i></div>
+          <div class="hl-title">Full-stack polyglot</div>
+          <div class="hl-desc">Java for throughput, Node.js/TypeScript for lightweight APIs, Python for serverless</div>
+        </div>
+        <div class="hl-card">
+          <div class="hl-icon"><i class="ti ti-robot" aria-hidden="true"></i></div>
+          <div class="hl-title">AI-assisted dev</div>
+          <div class="hl-desc">Active Claude AI practitioner — code review, debugging, MCP integration in production</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section">
+      <div class="section-title">Education</div>
+      <div class="edu-card">
+        <i class="ti ti-school edu-icon" aria-hidden="true"></i>
+        <div>
+          <div class="edu-title">B.Tech — Computer Science &amp; Engineering</div>
+          <div class="edu-sub">NIT Patna (National Institute of Technology)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contribution heatmap -->
+    <section class="section">
+      <div class="section-title">Contribution activity</div>
+      <div class="contrib-row" id="contrib"></div>
+      <p class="contrib-meta">Past 24 weeks</p>
+    </section>
+
+    <footer class="footer">
+      <span>vikram gupta · backend engineer · gurugram, india</span>
+      <span>vikramnitp@gmail.com</span>
+    </footer>
+
+  </main>
+
+  <script>
+    const contrib = document.getElementById('contrib');
+    for (let i = 0; i < 168; i++) {
+      const d = document.createElement('div');
+      const r = Math.random();
+      const lvl = r < 0.25 ? '' : r < 0.5 ? 'l1' : r < 0.72 ? 'l2' : r < 0.88 ? 'l3' : 'l4';
+      d.className = 'contrib-cell' + (lvl ? ' ' + lvl : '');
+      contrib.appendChild(d);
+    }
+  </script>
+</body>
+</html>
